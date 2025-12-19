@@ -13,9 +13,8 @@ const markCommit = (x, y) => {
     .add(y, "d")
     .format();
 
-  const data = {
-    date: date,
-  };
+  const data = { date, r: Math.random() }
+
 
   jsonfile.writeFile(path, data, () => {
     simpleGit().add([path]).commit(date, { "--date": date }).push();
@@ -37,4 +36,4 @@ const makeCommits = (n) => {
   });
 };
 
-makeCommits(100);
+makeCommits(500);
